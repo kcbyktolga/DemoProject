@@ -703,7 +703,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _panSpeed: 35
-  panBorderTickness: {x: 100, y: 100}
+  panBorderTickness: {x: 50, y: 50}
   _panMultiple: {x: 0.35, y: 0.9}
   _mouseDrag: 1
 --- !u!1 &723481205

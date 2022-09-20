@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.EventSystems;
 
 namespace DemoProject
 {
@@ -84,6 +85,14 @@ namespace DemoProject
             int index = isOn ? 1 : 0;
             return current.colors[index];
         }
+        public static bool IsTouchUI()
+        {
+#if !UNITY_EDITOR && (UNITY_ANDROID || UNITY_IOS || UNITY_STANDALONE_WIN)
+return Input.touchCount > 0 && EventSystem.current.IsPointerOverGameObject( Input.GetTouch( 0 ).fingerId );
+#else
+            return EventSystem.current.IsPointerOverGameObject();
+#endif
+        }
         #endregion
 
         #region Events
@@ -96,6 +105,7 @@ namespace DemoProject
         public static Action SetDefaulColor;
         public static Action<SelectableObject> SpawnProudct;
         public static Action AllDeselect;
+
         
         #endregion
     }

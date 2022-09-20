@@ -32,6 +32,9 @@ namespace DemoProject
         }
         protected virtual void OnMouseDown()
         {
+            if (GameManager.IsTouchUI())
+                return;
+
             OnFocus();
         }
         protected virtual void Deselect()
@@ -42,6 +45,7 @@ namespace DemoProject
         {
             _isOn = !_isOn;
             GameManager.OnFocus(this);
+            
         }
         protected virtual void Focus(SelectableBase _base)
         {         
@@ -50,6 +54,7 @@ namespace DemoProject
                     _isOn = false;
 
             GameManager.ShowInformation(_base._data, _base._isOn);
+ 
         }
    
         #endregion

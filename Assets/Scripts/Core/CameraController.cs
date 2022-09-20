@@ -17,15 +17,18 @@ namespace DemoProject
         [SerializeField]
         private bool _mouseDrag;
         private Vector3 _pos;
+
+        private const float _duration = .2f;
+
         #endregion
 
         #region Methods
-
+   
         private void Update()
-        {
+        {          
             Pan();
         }
-
+  
         private void Pan()
         {
             _pos = transform.position;
@@ -54,7 +57,7 @@ namespace DemoProject
         }
         private void LateUpdate()
         {
-            transform.DOMove(_pos, .2f);
+            transform.DOMove(_pos, _duration);
         }
         private Vector2 PanLimit()
         {
